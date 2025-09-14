@@ -62,7 +62,7 @@ export default function ScannerScreen() {
           style={StyleSheet.absoluteFillObject}
           facing="back"
           onBarcodeScanned={({ data }) => {
-            if (data === "http://en.m.wikipedia.org" && !qrLock.current) {
+            if (data && !qrLock.current) {
               qrLock.current = true;
               setTimeout(async () => {
                 authContext.logIn(data);
